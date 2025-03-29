@@ -24,7 +24,7 @@ exports.getDestinationById = async (req, res) => {
 };
 
 // Add a new destination
-exports.addDestination = async (req, res) => {
+exports.createDestination = async (req, res) => {
     try {
         const newDestination = new Destination(req.body);
         await newDestination.save();

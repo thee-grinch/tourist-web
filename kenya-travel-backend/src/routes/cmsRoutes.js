@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cmsController = require('../controllers/cmsController');
-const { auth } = require('../middleware/auth');
+const { adminMiddleware } = require('../middleware/auth');
 
 // Get all blog posts
 router.get('/posts', cmsController.getAllPosts);
@@ -10,8 +10,8 @@ router.get('/posts', cmsController.getAllPosts);
 router.get('/posts/:id', cmsController.getPostById);
 
 // Admin routes for managing blog posts
-router.post('/admin/posts', auth('admin'), cmsController.createPost);
-router.put('/admin/posts/:id', auth('admin'), cmsController.updatePost);
-router.delete('/admin/posts/:id', auth('admin'), cmsController.deletePost);
+router.post('/admin/posts', adminMiddleware, cmsController.createPost);
+router.put('/admin/posts/:id', adminMiddleware, cmsController.updatePost);
+router.delete('/admin/posts/:id', adminMiddleware, cmsController.deletePost);
 
 module.exports = router;

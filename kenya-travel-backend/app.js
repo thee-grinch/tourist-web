@@ -6,7 +6,7 @@ const { errorHandler } = require('./src/middleware/errorHandler');
 const authRoutes = require('./src/routes/authRoutes');
 const bookingRoutes = require('./src/routes/bookingRoutes');
 const destinationRoutes = require('./src/routes/destinationRoutes');
-const paymentRoutes = require('./src/routes/paymentRoutes');
+// const paymentRoutes = require('./src/routes/paymentRoutes');
 const reviewRoutes = require('./src/routes/reviewRoutes');
 const adminRoutes = require('./src/routes/adminRoutes');
 const cmsRoutes = require('./src/routes/cmsRoutes');
@@ -24,10 +24,10 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // Routes
-// app.use('/api/auth', authRoutes);
-// app.use('/api/bookings', bookingRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/bookings', bookingRoutes);
 app.use('/api/destinations', destinationRoutes);
-app.use('/api/payments', paymentRoutes);
+// app.use('/api/payments', paymentRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/cms', cmsRoutes);

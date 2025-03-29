@@ -1,5 +1,5 @@
 const express = require('express');
-const { createBooking, getAllBookings, getBookingById, cancelBooking } = require('../controllers/bookingController');
+const { createBooking, getUserBookings, getBookingById, cancelBooking } = require('../controllers/bookingController');
 const { authenticate } = require('../middleware/auth');
 
 const router = express.Router();
@@ -8,7 +8,8 @@ const router = express.Router();
 router.post('/', authenticate, createBooking);
 
 // Get all bookings for the logged-in user
-router.get('/', authenticate, getAllBookings);
+
+router.get('/', authenticate, getUserBookings);
 
 // Get a specific booking by ID
 router.get('/:id', authenticate, getBookingById);

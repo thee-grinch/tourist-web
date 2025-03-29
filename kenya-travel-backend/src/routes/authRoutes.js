@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
-const { protect } = require('../middleware/auth');
+const { protectMiddleware } = require('../middleware/auth');
 
 // Register new user
 router.post('/register', authController.register);
@@ -10,9 +10,9 @@ router.post('/register', authController.register);
 router.post('/login', authController.login);
 
 // Get user profile (protected route)
-router.get('/me', authController.getMe);
+router.get('/me',protectMiddleware , authController.getMe);
 
 // Logout user
-router.post('/logout', authController.logout);
+router.post('/logout', protectMiddleware , authController.logout);
 
 module.exports = router;

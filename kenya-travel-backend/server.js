@@ -13,7 +13,7 @@ const paymentRoutes = require('./src/routes/paymentRoutes');
 const reviewRoutes = require('./src/routes/reviewRoutes');
 const adminRoutes = require('./src/routes/adminRoutes');
 const cmsRoutes = require('./src/routes/cmsRoutes');
-const { connectDB } = require('./src/config/database');
+const connectDB  = require('./src/config/database');
 
 const app = express();
 
@@ -35,9 +35,7 @@ app.use('/api/admin', adminRoutes);
 app.use('/api/cms', cmsRoutes);
 
 // Error handling middleware
-app.use(errorHandler);
-
-module.exports = app;
+// app.use(errorHandler);
 
 dotenv.config();
 

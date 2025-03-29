@@ -4,7 +4,7 @@ const {
     getReviewsByDestination, 
     deleteReview 
 } = require('../controllers/reviewController');
-const { authenticate, authorize } = require('../middleware/auth');
+const { authenticate, adminMiddleware } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -15,6 +15,6 @@ router.post('/:destinationId', authenticate, addReview);
 router.get('/:destinationId', getReviewsByDestination);
 
 // Delete a review (Admin only)
-router.delete('/:id', authenticate, authorize('Admin'), deleteReview);
+router.delete('/:id', authenticate, adminMiddleware, deleteReview);
 
 module.exports = router;

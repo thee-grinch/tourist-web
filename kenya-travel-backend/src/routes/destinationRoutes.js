@@ -6,7 +6,7 @@ const {
     updateDestination, 
     deleteDestination 
 } = require('../controllers/destinationController');
-const { authenticate, authorize } = require('../middleware/auth');
+const { authenticate, adminMiddleware } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -15,8 +15,8 @@ router.get('/', getAllDestinations);
 router.get('/:id', getDestinationById);
 
 // Admin routes
-router.post('/', authenticate, authorize('Admin'), createDestination);
-router.put('/:id', authenticate, authorize('Admin'), updateDestination);
-router.delete('/:id', authenticate, authorize('Admin'), deleteDestination);
+router.post('/', authenticate, adminMiddleware, createDestination);
+router.put('/:id', authenticate, adminMiddleware, updateDestination);
+router.delete('/:id', authenticate, adminMiddleware, deleteDestination);
 
 module.exports = router;
