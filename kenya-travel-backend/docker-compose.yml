@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongo:27017/kenya-travel
+      - JWT_SECRET=your_jwt_secret
+      - M_PESA_CONSUMER_KEY=your_mpesa_consumer_key
+      - M_PESA_CONSUMER_SECRET=your_mpesa_consumer_secret
+      - STRIPE_SECRET_KEY=your_stripe_secret_key
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
