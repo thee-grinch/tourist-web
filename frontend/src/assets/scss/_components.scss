@@ -1,0 +1,268 @@
+@use 'sass:color';
+@use '@/assets/scss/_variables' as *;
+
+// Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-2 $spacing-4;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: $rounded-md;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &-primary {
+    background-color: $primary;
+    color: $white;
+
+    &:hover:not(:disabled) {
+      background-color: $primary-hover;
+    }
+  }
+
+  &-secondary {
+    background-color: $secondary;
+    color: $white;
+
+    &:hover:not(:disabled) {
+      background-color: color.adjust($secondary, $lightness: -10%);
+    }
+  }
+
+  &-outline {
+    background-color: transparent;
+    border-color: $gray-300;
+    color: $gray-700;
+
+    &:hover:not(:disabled) {
+      background-color: $gray-50;
+    }
+  }
+
+  &-danger {
+    background-color: $danger;
+    color: $white;
+
+    &:hover:not(:disabled) {
+      background-color: color.adjust($danger, $lightness: -10%);
+    }
+  }
+
+  &-lg {
+    padding: $spacing-3 $spacing-6;
+    font-size: $font-size-lg;
+  }
+
+  &-sm {
+    padding: $spacing-1 $spacing-3;
+    font-size: $font-size-sm;
+  }
+
+  &-block {
+    display: block;
+    width: 100%;
+  }
+}
+
+// Forms
+.form-group {
+  margin-bottom: $spacing-4;
+
+  label {
+    display: block;
+    margin-bottom: $spacing-2;
+    font-weight: $font-weight-medium;
+    color: $gray-700;
+  }
+
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: $spacing-2 $spacing-3;
+    font-size: $font-size-base;
+    line-height: 1.5;
+    color: $gray-700;
+    background-color: $white;
+    background-clip: padding-box;
+    border: 1px solid $gray-300;
+    border-radius: $rounded-md;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+    &:focus {
+      outline: 0;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba($primary, 0.25);
+    }
+
+    &::placeholder {
+      color: $gray-400;
+    }
+  }
+
+  .invalid-feedback {
+    display: block;
+    margin-top: $spacing-1;
+    color: $danger;
+    font-size: $font-size-sm;
+  }
+}
+
+// Cards
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: $white;
+  background-clip: border-box;
+  border: 1px solid $gray-200;
+  border-radius: $rounded-lg;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  &-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  &-body {
+    flex: 1 1 auto;
+    padding: $spacing-4;
+  }
+
+  &-title {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-2;
+  }
+
+  &-text {
+    color: $gray-600;
+    margin-bottom: $spacing-3;
+  }
+
+  &-footer {
+    padding: $spacing-3 $spacing-4;
+    background-color: $gray-50;
+    border-top: 1px solid $gray-200;
+  }
+}
+
+// Alerts
+.alert {
+  position: relative;
+  padding: $spacing-3 $spacing-4;
+  margin-bottom: $spacing-4;
+  border: 1px solid transparent;
+  border-radius: $rounded-md;
+
+  &-success {
+    color: color.adjust($success, $lightness: -30%);
+    background-color: color.adjust($success, $lightness: 40%);
+    border-color: color.adjust($success, $lightness: 30%);
+  }
+
+  &-danger {
+    color: color.adjust($danger, $lightness: -30%);
+    background-color: color.adjust($danger, $lightness: 40%);
+    border-color: color.adjust($danger, $lightness: 30%);
+  }
+
+  &-warning {
+    color: color.adjust($warning, $lightness: -30%);
+    background-color: color.adjust($warning, $lightness: 40%);
+    border-color: color.adjust($warning, $lightness: 30%);
+  }
+
+  &-info {
+    color: color.adjust($primary, $lightness: -30%);
+    background-color: color.adjust($primary, $lightness: 40%);
+    border-color: color.adjust($primary, $lightness: 30%);
+  }
+}
+
+// Badges
+.badge {
+  display: inline-block;
+  padding: $spacing-1 $spacing-2;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: $rounded-full;
+
+  &-primary {
+    color: $white;
+    background-color: $primary;
+  }
+
+  &-secondary {
+    color: $white;
+    background-color: $secondary;
+  }
+
+  &-danger {
+    color: $white;
+    background-color: $danger;
+  }
+
+  &-warning {
+    color: $gray-800;
+    background-color: $warning;
+  }
+
+  &-success {
+    color: $white;
+    background-color: $success;
+  }
+}
+
+// Navigation
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+  &-item {
+    margin-right: $spacing-3;
+  }
+
+  &-link {
+    display: block;
+    padding: $spacing-2 $spacing-3;
+    color: $gray-600;
+    font-weight: $font-weight-medium;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $primary;
+      text-decoration: none;
+    }
+
+    &.active {
+      color: $primary;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+@use '@/assets/scss/_variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-sans;
+  line-height: 1.5;
+  color: $gray-800;
+  background-color: $white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  margin-bottom: $spacing-4;
+}
+
+h1 {
+  font-size: $font-size-4xl;
+}
+
+h2 {
+  font-size: $font-size-3xl;
+}
+
+h3 {
+  font-size: $font-size-2xl;
+}
+
+h4 {
+  font-size: $font-size-xl;
+}
+
+p {
+  margin-bottom: $spacing-4;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $primary-hover;
+    text-decoration: underline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $spacing-4;
+
+  @media (min-width: $breakpoint-sm) {
+    max-width: $breakpoint-sm;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    max-width: $breakpoint-md;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    max-width: $breakpoint-lg;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    max-width: $breakpoint-xl;
+  }
+
+  @media (min-width: $breakpoint-2xl) {
+    max-width: $breakpoint-2xl;
+  }
+}
+
+.section {
+  padding: $spacing-12 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: $spacing-8;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: $primary;
+    margin: $spacing-4 auto 0;
+    border-radius: $rounded-full;
+  }
+}
