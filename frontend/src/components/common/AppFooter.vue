@@ -23,15 +23,15 @@
           <h3 class="footer-title">Contact Us</h3>
           <ul class="footer-contact">
             <li class="flex items-center">
-              <EnvelopeIcon class="h-5 w-5 mr-2" />
+              <!-- <EnvelopeIcon class="h-5 w-5 mr-2" /> -->
               <span>info@kenyatravel.com</span>
             </li>
             <li class="flex items-center">
-              <PhoneIcon class="h-5 w-5 mr-2" />
+              <!-- <PhoneIcon class="h-5 w-5 mr-2" /> -->
               <span>+254 700 123 456</span>
             </li>
             <li class="flex items-center">
-              <MapPinIcon class="h-5 w-5 mr-2" />
+              <!-- <MapPinIcon class="h-5 w-5 mr-2" /> -->
               <span>Nairobi, Kenya</span>
             </li>
           </ul>
@@ -41,16 +41,16 @@
           <h3 class="footer-title">Follow Us</h3>
           <div class="footer-social">
             <a href="#" class="social-link">
-              <FacebookIcon class="h-6 w-6" />
+              <!-- <FacebookIcon class="h-6 w-6" /> -->
             </a>
             <a href="#" class="social-link">
-              <TwitterIcon class="h-6 w-6" />
+              <!-- <TwitterIcon class="h-6 w-6" /> -->
             </a>
             <a href="#" class="social-link">
-              <InstagramIcon class="h-6 w-6" />
+              <!-- <InstagramIcon class="h-6 w-6" /> -->
             </a>
             <a href="#" class="social-link">
-              <YoutubeIcon class="h-6 w-6" />
+              <!-- <YoutubeIcon class="h-6 w-6" /> -->
             </a>
           </div>
         </div>
@@ -64,15 +64,15 @@
 </template>
 
 <script setup>
-import {
-  EnvelopeIcon,
-  PhoneIcon,
-  MapPinIcon,
-  FacebookIcon,
-  TwitterIcon,
-  InstagramIcon,
-  YoutubeIcon,
-} from '@heroicons/vue/24/outline'
+// import {
+//   EnvelopeIcon,
+//   PhoneIcon,
+//   MapPinIcon,
+//   // FacebookIcon,
+//   TwitterIcon,
+//   InstagramIcon,
+//   // YoutubeIcon,
+// } from '@heroicons/vue/24/outline'
 import { computed } from 'vue'
 
 const currentYear = computed(() => new Date().getFullYear())

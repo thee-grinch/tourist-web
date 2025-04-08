@@ -62,7 +62,8 @@ const authStore = useAuthStore()
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/variables';
+@use '@/assets/scss/variables' as *;
+@use 'sass:color';
 
 .dashboard-view {
   padding: $spacing-8 0;

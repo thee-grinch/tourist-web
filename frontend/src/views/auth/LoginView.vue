@@ -123,7 +123,8 @@ const handleLogin = async () => {
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables';
+@use 'sass:color';
+
 
 .auth-view {
   display: flex;
@@ -164,7 +165,7 @@ const handleLogin = async () => {
 }
 
 .auth-error {
-  background-color: lighten($danger, 40%);
+  background-color: color.scale($danger, $lightness: 40%);
   color: $danger;
   padding: $spacing-3;
   border-radius: $rounded-md;

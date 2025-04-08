@@ -234,7 +234,8 @@ const changePassword = async () => {
 </script>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables';
+@use '@/assets/scss/variables' as *;
+@use 'sass:color';
 
 .profile-view {
   padding: $spacing-6;
@@ -264,7 +265,7 @@ const changePassword = async () => {
 }
 
 .profile-success {
-  background-color: lighten($success, 40%);
+  background-color: color.scale($success, $lightness: 40%);
   color: $success;
   padding: $spacing-3;
   border-radius: $rounded-md;
@@ -273,8 +274,7 @@ const changePassword = async () => {
 }
 
 .password-error {
-  background-color: lighten($danger, 40%);
-  color: $danger;
+  background-color: color.scale($danger, $lightness: 40%);  color: $danger;
   padding: $spacing-3;
   border-radius: $rounded-md;
   margin-bottom: $spacing-4;
@@ -282,7 +282,8 @@ const changePassword = async () => {
 }
 
 .password-success {
-  background-color: lighten($success, 40%);
+  // background-color: lighten($success, 40%);
+  background-color: color.scale($success, $lightness: 40%);
   color: $success;
   padding: $spacing-3;
   border-radius: $rounded-md;

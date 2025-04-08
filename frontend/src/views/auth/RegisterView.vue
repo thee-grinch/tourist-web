@@ -163,6 +163,7 @@ const handleRegister = async () => {
 
 <style lang="scss" scoped>
 @use '@/assets/scss/variables';
+@use 'sass:color';
 
 .auth-view {
   display: flex;
@@ -203,7 +204,6 @@ const handleRegister = async () => {
 }
 
 .auth-error {
-  background-color: lighten($danger, 40%);
   color: $danger;
   padding: $spacing-3;
   border-radius: $rounded-md;

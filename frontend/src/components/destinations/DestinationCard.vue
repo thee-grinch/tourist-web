@@ -51,7 +51,8 @@ const truncateDescription = (text) => {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/variables';
+@use '@/assets/scss/variables' as *;
+@use 'sass:color';
 
 .destination-card {
   display: block;

@@ -105,7 +105,8 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/variables';
+@use '@/assets/scss/variables' as *;
+@use 'sass:color';
 
 .home-view {
   overflow-x: hidden;
