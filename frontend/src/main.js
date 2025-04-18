@@ -1,26 +1,19 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import App from './App.vue'
-import router from './router'
-import axios from 'axios'
-import { useAuthStore } from '@/stores/auth'
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
+import App from './App.vue';
+import router from './router';
+import { setupAxiosInterceptors } from './axios';
 
 // Import global SCSS
-import '@/assets/scss/main.scss'
+import '@/assets/scss/main.scss';
 
-// Set axios defaults
-axios.defaults.baseURL = import.meta.env.VITE_API_URL
-axios.interceptors.request.use((config) => {
-  const authStore = useAuthStore()
-  if (authStore.token) {
-    config.headers.Authorization = `Bearer ${authStore.token}`
-  }
-  return config
-})
+const app = createApp(App);
 
-const app = createApp(App)
+const pinia = createPinia();
+app.use(pinia);
+app.use(router);
 
-app.use(createPinia())
-app.use(router)
+// Set up Axios interceptors after Pinia is initialized
+setupAxiosInterceptors();
 
-app.mount('#app')
+app.mount('#app');
